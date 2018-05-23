@@ -4,20 +4,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private boolean q1Answer = false;
     private String q2Answer = "";
-    private String q4Answer = "";
+    private String q4Answer = ""; //  this is used on line 169 and 179
 
     private boolean isQ1Correct = false;
     private boolean isQ2Correct = false;
     private boolean isQ3Correct = false;
     private boolean isQ4Correct = false;
-
-    private boolean hasError = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,29 +26,17 @@ public class MainActivity extends AppCompatActivity {
 
     public void saveQuiz(View view) {
 
-        getResponseFromQuestionOne();
         getResponseFromQuestionTwo();
         getResponseFromQuestionThree();
-        getResponseFromQuestionFour();
 
         validateForm();
     }
 
-    private void getResponseFromQuestionOne() {
-
-        if (q1Answer == false) {
-
-        }
-    }
-
     private void getResponseFromQuestionTwo() {
 
-        TextView txtQ2Health = findViewById(R.id.txtQ2Health);
+        TextView txtQ2 = findViewById(R.id.txtQ2);
 
-        q2Answer = txtQ2Health.getText().toString();
-
-        if (q2Answer == "") {
-        }
+        q2Answer = txtQ2.getText().toString();
 
         if (q2Answer.equals("12")) {
             isQ2Correct = true;
@@ -58,59 +45,20 @@ public class MainActivity extends AppCompatActivity {
 
     private void getResponseFromQuestionThree() {
 
-        // ArrayList<Integer> days = new ArrayList<>();
-        CheckBox cbMonday = findViewById(R.id.cbMonday);
-        CheckBox cbWed = findViewById(R.id.cbWed);
-        CheckBox cbSaturday = findViewById(R.id.cbSaturday);
+        CheckBox cb6 = findViewById(R.id.cb6);
+        CheckBox cb10 = findViewById(R.id.cb10);
+        CheckBox cb1 = findViewById(R.id.cb1);
 
-        if (cbMonday.isChecked() && cbSaturday.isChecked() && !cbWed.isChecked()) {
+        if (cb6.isChecked() && cb1.isChecked() && !cb10.isChecked()) {
             isQ3Correct = true;
         }
-
-
-//        days.add(-1);
-//        days.add(-1);
-//        days.add(-1);
-//
-//
-//
-//        if (cbMonday.isChecked()) {
-//            Integer answer = days.get(0);
-//            answer = 1;
-//            days.set(0, answer);
-//
-//        }
-//
-//        if (cbWed.isChecked()) {
-//            Integer answer = days.get(1);
-//            answer = 1;
-//            days.set(1, answer);
-//        }
-//
-//        if (cbSaturday.isChecked()) {
-//            Integer answer = days.get(2);
-//            answer = 1;
-//            days.set(2, answer);
-//        }
-
-
-
-    }
-
-    private void getResponseFromQuestionFour() {
-
     }
 
     private void validateForm() {
 
         String msg = "";
 
-        if (!hasError) {
-
-            resetForm();
-
-        }
-        int score = 0;
+        int score = 0; // Every time submit is press score / grade is reset!
 
         if (isQ1Correct){
             score = score + 25;
@@ -128,12 +76,42 @@ public class MainActivity extends AppCompatActivity {
             score = score + 25;
         }
 
+        if (score == 100) {
+            resetForm();
+        }
+
         msg = "You Score is: " + score + "%";
         showToaster(msg);
     }
 
     private void resetForm(){
 
+        RadioButton rb5 = findViewById(R.id.rb5);
+        RadioButton rb7 = findViewById(R.id.rb7);
+        RadioButton rb16 = findViewById(R.id.rb16);
+        RadioButton rb8 = findViewById(R.id.rb8);
+
+        CheckBox cb6 = findViewById(R.id.cb6);
+        CheckBox cb1 = findViewById(R.id.cb1);
+        CheckBox cb10 = findViewById(R.id.cb10);
+
+        TextView txtQ2 = findViewById(R.id.txtQ2);
+
+        isQ1Correct = false;
+        isQ2Correct = false;
+        isQ3Correct = false;
+        isQ4Correct = false;
+
+        rb5.setChecked(false);
+        rb7.setChecked(false);
+        rb16.setChecked(false);
+        rb8.setChecked(false);
+
+        cb1.setChecked(false);
+        cb10.setChecked(false);
+        cb6.setChecked(false);
+
+        txtQ2.setText("");
     }
 
     private void showToaster(String msg) {
@@ -141,20 +119,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void toast(String msg) {
-        Toast toast = new Toast(this);
 
-        toast.makeText(this, msg, Toast.LENGTH_LONG).show();
+        Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
     }
 
     public void onQuestionOneRbChange(View view) {
 
         switch (view.getId()) {
 
-            case R.id.rbLossWeight:
+            case R.id.rb5:
                 q1Answer = false;
+                isQ1Correct = false;
                 break;
 
-            case R.id.rbBeFit :
+            case R.id.rb7:
                 q1Answer = true;
                 isQ1Correct = true;
                 break;
@@ -165,16 +143,15 @@ public class MainActivity extends AppCompatActivity {
 
         switch (view.getId()) {
 
-            case R.id.rbQ4No:
+            case R.id.rb8:
                 q4Answer = "8";
                 isQ4Correct = false;
                 break;
 
-            case R.id.rbQ4Yes:
+            case R.id.rb16:
                 q4Answer = "16";
                 isQ4Correct = true;
                 break;
-
         }
     }
 }

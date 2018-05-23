@@ -9,11 +9,13 @@
     <!--  QUESTION 1 -->
     <android.support.constraint.ConstraintLayout
         android:id="@+id/conLayoutQ1"
-        android:layout_width="368dp"
+        android:layout_width="match_parent"
         android:layout_height="85dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtQuizApp">
 
         <TextView
@@ -54,7 +56,7 @@
             app:layout_constraintTop_toBottomOf="@+id/txtQ1Label">
 
             <RadioButton
-                android:id="@+id/rbLossWeight"
+                android:id="@+id/rb5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -62,7 +64,7 @@
                 android:text="5" />
 
             <RadioButton
-                android:id="@+id/rbBeFit"
+                android:id="@+id/rb7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -75,17 +77,18 @@
     <!--  QUESTION 2 -->
     <android.support.constraint.ConstraintLayout
         android:id="@+id/conLayoutQ2"
-        android:layout_width="368dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="82dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/conLayoutQ1">
 
         <EditText
-            android:id="@+id/txtQ2Health"
+            android:id="@+id/txtQ2"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_marginEnd="8dp"
@@ -124,10 +127,10 @@
     <!--  QUESTION 3 -->
     <android.support.constraint.ConstraintLayout
         android:id="@+id/conLayoutQ3"
-        android:layout_width="368dp"
+        android:layout_width="match_parent"
         android:layout_height="85dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -156,7 +159,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <CheckBox
-            android:id="@+id/cbMonday"
+            android:id="@+id/cb6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
@@ -168,7 +171,7 @@
             app:layout_constraintTop_toBottomOf="@+id/txtQ3Label" />
 
         <CheckBox
-            android:id="@+id/cbWed"
+            android:id="@+id/cb10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
@@ -177,12 +180,12 @@
             android:layout_marginTop="8dp"
             android:text="10"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/cbSaturday"
-            app:layout_constraintStart_toEndOf="@+id/cbMonday"
+            app:layout_constraintEnd_toStartOf="@+id/cb1"
+            app:layout_constraintStart_toEndOf="@+id/cb6"
             app:layout_constraintTop_toBottomOf="@+id/txtQ3Label" />
 
         <CheckBox
-            android:id="@+id/cbSaturday"
+            android:id="@+id/cb1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
@@ -198,10 +201,10 @@
     <!--  QUESTION 4 -->
     <android.support.constraint.ConstraintLayout
         android:id="@+id/conLayoutQ4"
-        android:layout_width="368dp"
+        android:layout_width="match_parent"
         android:layout_height="84dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -235,13 +238,13 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:nextFocusDown="@id/rb16"
             android:orientation="horizontal"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtQ4Label"
-            android:nextFocusDown="@id/rbQ4Yes">
+            app:layout_constraintTop_toBottomOf="@+id/txtQ4Label">
 
             <RadioButton
-                android:id="@+id/rbQ4Yes"
+                android:id="@+id/rb16"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -249,7 +252,7 @@
                 android:text="16" />
 
             <RadioButton
-                android:id="@+id/rbQ4No"
+                android:id="@+id/rb8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -261,11 +264,11 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="343dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:onClick="saveQuiz"
         android:text="@string/save_button_text"
